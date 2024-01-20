@@ -1,0 +1,14 @@
+---
+import { strings } from "../constants";
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { decodeToken } from "../utils";
+
+const email = decodeToken(
+  Astro.cookies.get(strings.cookies.access.name)?.value
+);
+---
+
+<BaseLayout title="Dashboard">
+  <p>here the dashboard</p>
+  {email ? <p>{email}</p> : null}
+</BaseLayout>

@@ -1,0 +1,14 @@
+---
+import { strings } from "../constants";
+
+const { cookies } = Astro;
+const isLogedIn = Boolean(
+  cookies.get(import.meta.env.ACCESS_TOKEN_COOKIE_NAME)
+);
+const url = isLogedIn ? strings.routes.LOGOUT : strings.routes.SIGN_IN;
+const label = `Sign ${isLogedIn ? "out" : "in"}`;
+---
+
+<a class="px-4 py-2 rounded-lg text-white uppercase bg-zinc-900" href={url}
+  >{label}</a
+>
