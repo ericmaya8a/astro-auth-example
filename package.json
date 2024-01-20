@@ -16,7 +16,9 @@
     "prisma:seed": "prisma db seed",
     "prisma:studio": "prisma studio",
     "timeout": "sleep 5",
-    "dev:up": "yarn postgres && yarn timeout && yarn prisma:migrate && yarn dev"
+    "dev:up": "yarn postgres && yarn timeout && yarn prisma:migrate && yarn dev",
+    "production:build": "prisma generate && prisma migrate deploy && yarn build",
+    "production:build:dev": "prisma generate && prisma migrate dev && yarn build"
   },
   "prisma": {
     "seed": "node prisma/seed.cjs"
