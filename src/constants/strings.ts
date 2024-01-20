@@ -1,6 +1,6 @@
 export const strings = {
   expiresIn: {
-    short: "30s",
+    short: "30m",
     long: "1d",
   },
   cookies: {
