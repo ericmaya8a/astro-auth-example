@@ -17,6 +17,9 @@ export const strings = {
     HOME: "/",
     SIGN_IN: "/signin",
     DASHBOARD: "/dashboard",
+  },
+  api: {
     LOGOUT: "/api/auth/signout",
+    SIGN_IN: "/api/auth/signin",
   },
 } as const;
