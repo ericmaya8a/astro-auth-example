@@ -1,0 +1,27 @@
+.input {
+    @apply border rounded-lg block p-2 focus:outline-none focus:ring-2 focus:ring-opacity-75 focus:ring-blue-400;
+}
+
+.btn {
+    @apply py-2 px-4 text-white font-semibold rounded-lg shadow-md uppercase focus:outline-none focus:ring-2 focus:ring-opacity-75;
+}
+
+.btn-default {
+    @apply bg-zinc-500 hover:bg-zinc-700 focus:ring-zinc-400;
+}
+
+.btn-primary {
+    @apply bg-blue-500 hover:bg-blue-700 focus:ring-blue-400;
+}
+
+.btn-success {
+    @apply bg-green-500 hover:bg-green-700 focus:ring-green-400;
+}
+
+.btn-warning {
+    @apply bg-yellow-500 hover:bg-yellow-700 focus:ring-yellow-400;
+}
+
+.btn-danger {
+    @apply bg-red-500 hover:bg-red-700 focus:ring-red-400;
+}
