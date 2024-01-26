@@ -1,5 +1,5 @@
 import { zodResolver } from "@hookform/resolvers/zod";
-import { useForm, type SubmitHandler } from "react-hook-form";
+import { Controller, useForm, type SubmitHandler } from "react-hook-form";
 import { strings } from "../../constants";
 import { LoginSchema, type LoginSchemaT } from "../../schemas";
 import { Input } from "./Input";
@@ -7,8 +7,8 @@ import { Input } from "./Input";
 export function LoginForm() {
   const {
     formState: { errors, isSubmitting },
+    control,
     handleSubmit,
-    register,
   } = useForm<LoginSchemaT>({
     defaultValues: { email: "", password: "" },
     resolver: zodResolver(LoginSchema),
@@ -26,7 +26,7 @@ export function LoginForm() {
       await response.json();
 
     if (result.success) {
-      location.replace(strings.routes.DASHBOARD);
+      return location.replace(strings.routes.DASHBOARD);
     }
   };
 
@@ -37,23 +37,37 @@ export function LoginForm() {
         onSubmit={handleSubmit(onSubmit)}
         noValidate
       >
-        <Input
-          aria-label="Email"
-          type="email"
-          id="email"
-          placeholder="Enter your Email"
-          required
-          {...register("email")}
-          errormessage={errors.email?.message}
+        <Controller
+          name="email"
+          control={control}
+          render={({ field: { onChange, value } }) => (
+            <Input
+              aria-label="Email"
+              type="email"
+              id="email"
+              placeholder="Enter your Email"
+              value={value}
+              onChange={onChange}
+              required
+              errormessage={errors.email?.message}
+            />
+          )}
         />
-        <Input
-          aria-label="Password"
-          type="password"
-          id="password"
-          placeholder="Enter your Password"
-          required
-          {...register("password")}
-          errormessage={errors.password?.message}
+        <Controller
+          name="password"
+          control={control}
+          render={({ field: { onChange, value } }) => (
+            <Input
+              aria-label="Password"
+              type="password"
+              id="password"
+              placeholder="Enter your Password"
+              value={value}
+              onChange={onChange}
+              required
+              errormessage={errors.password?.message}
+            />
+          )}
         />
         <button
           className="btn btn-primary sm:w-fit"
