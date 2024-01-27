@@ -9,26 +9,32 @@ function invalidMessage(title: string) {
   return `Invalid ${title}`;
 }
 
-const EmailSchema = z.object({
-  email: z
-    .string()
-    .trim()
-    .min(1, requiredMessage("Email"))
-    .regex(regex.email, invalidMessage("Email")),
-});
+const EmailValidation = z
+  .string()
+  .trim()
+  .min(1, requiredMessage("Email"))
+  .regex(regex.email, invalidMessage("Email"));
 
-export const LoginSchema = z
-  .object({
-    password: z
-      .string()
-      .trim()
-      .min(1, requiredMessage("Password"))
-      .regex(
-        regex.password,
-        `${invalidMessage(
-          "Password"
-        )}. Should include Uppercase, Lowercase, Number and Special chars. And should have 8 chars. min and 16 chars. max`
-      ),
-  })
-  .merge(EmailSchema);
+const PasswordValidation = z
+  .string()
+  .trim()
+  .min(1, requiredMessage("Password"))
+  .regex(
+    regex.password,
+    `${invalidMessage(
+      "Password"
+    )}. Should include Uppercase, Lowercase, Number and Special chars. And should have 8 chars. min and 16 chars. max`
+  );
+
+export const LoginSchema = z.object({
+  email: EmailValidation,
+  password: PasswordValidation,
+});
 export type LoginSchemaT = z.infer<typeof LoginSchema>;
+
+export const RegisterSchema = z.object({
+  name: z.string().trim().min(1, requiredMessage("Name")),
+  email: EmailValidation,
+  password: PasswordValidation,
+});
+export type RegisterSchemaT = z.infer<typeof RegisterSchema>;
