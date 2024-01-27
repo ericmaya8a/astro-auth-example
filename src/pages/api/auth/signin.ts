@@ -1,18 +1,19 @@
 import type { APIRoute } from "astro";
 import { strings } from "../../../constants";
+import { LoginSchema, type LoginSchemaT } from "../../../schemas";
 import { getUserByEmail } from "../../../server/modules";
 import { comparePassword, createCookie } from "../../../utils";
-import { LoginSchema, type LoginSchemaT } from "../../../schemas";
 
-export const POST: APIRoute = async ({ request, cookies, redirect }) => {
+export const POST: APIRoute = async ({ request, cookies }) => {
   try {
     const body: LoginSchemaT = await request.json();
     const result = LoginSchema.safeParse(body);
 
     if (result.success) {
       const { email, password } = body;
+      const lowerCaseEmail = email.toLowerCase();
       // find user in DB
-      const user = await getUserByEmail(email);
+      const user = await getUserByEmail(lowerCaseEmail);
       if (!user) {
         return Response.json(
           {
@@ -50,7 +51,6 @@ export const POST: APIRoute = async ({ request, cookies, redirect }) => {
         username: user.email,
       });
 
-      // return redirect(strings.routes.DASHBOARD);
       return Response.json({
         success: true,
       });
