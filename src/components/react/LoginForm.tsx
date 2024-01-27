@@ -1,5 +1,6 @@
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Controller, useForm, type SubmitHandler } from "react-hook-form";
+import { toast } from "react-toastify";
 import { strings } from "../../constants";
 import { LoginSchema, type LoginSchemaT } from "../../schemas";
 import { Input } from "./Input";
@@ -28,6 +29,11 @@ export function LoginForm() {
     if (result.success) {
       return location.replace(strings.routes.DASHBOARD);
     }
+
+    toast.error(result.message ?? "Server Error", {
+      theme: "colored",
+      position: "top-center",
+    });
   };
 
   return (

@@ -1,4 +1,6 @@
 ---
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import Head from "../components/Head.astro";
 import "../styles/main.css";
 ---
@@ -9,5 +11,6 @@ import "../styles/main.css";
     <main class="grid place-items-center h-dvh bg-zinc-400">
       <slot />
     </main>
+    <ToastContainer client:load />
   </body>
 </html>
