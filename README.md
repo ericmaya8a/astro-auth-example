@@ -43,5 +43,5 @@ All commands are run from the root of the project, from a terminal:
 | :------------------ | :--------------------------------------------------------------------------------- |
 | `yarn install`      | Installs dependencies                                                              |
 | `yarn run dev:up`   | Start a postgres db with seed data and starts local dev server at `localhost:4321` |
-| `yarn run dev`      | tarts local dev server at `localhost:4321`                                         |
+| `yarn run dev`      | Starts local dev server at `localhost:4321`                                        |
 | `yarn run dev:down` | Stop local dev server and remove postgres db                                       |
