@@ -2,6 +2,9 @@
   "name": "astro-auth-example",
   "type": "module",
   "version": "0.0.1",
+  "description": "A simple Auth example with Astro, Prisma and Postgres",
+  "license": "MIT",
+  "keywords": ["auth", "Astro", "Postgres", "Prisma"],
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
