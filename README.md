@@ -1,12 +1,20 @@
+<div>
+    <img src="static/images/readme.png"/>
+</div>
+
 # Astro Auth Example
 
 This is a Auth example with [prisma](https://www.prisma.io/) and [postgres](https://www.postgresql.org/) using [Astro](https://astro.build/)
 
-The project use the following technologies:
+## 🛠️ Stack
 
-- [Astro](https://astro.build/)
-- [Prisma.io](https://www.prisma.io/docs)
-- [docker compose](https://docs.docker.com/compose/)
+- <img src="static/images/astro.svg" height="20"/> [Astro](https://astro.build/)
+- <img src="static/images/react.svg" height="20"/> [React](https://react.dev/)
+- <img src="static/images/react-hook-form.svg" height="20"/> [React Hook Form](https://react-hook-form.com/)
+- <img src="static/images/prisma.svg" height="20"/> [Prisma.io](https://www.prisma.io/docs)
+- <img src="static/images/postgres.svg" height="20"/> [Postgres](https://www.postgresql.org/docs/)
+- <img src="static/images/zod.svg" height="20"/> [Zod](https://zod.dev/)
+- <img src="static/images/docker.svg" height="20"/> [docker compose](https://docs.docker.com/compose/)
 
 ## Getting Started
 
