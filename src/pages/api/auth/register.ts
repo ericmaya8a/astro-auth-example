@@ -17,7 +17,7 @@ export const POST: APIRoute = async ({ request }) => {
         return Response.json(
           {
             success: false,
-            message: `User: ${lowerCaseEmail}.\nAlready exists.`,
+            message: `User: "${lowerCaseEmail}". Already exists.`,
           },
           { status: 400 }
         );

@@ -17,9 +17,11 @@ export const strings = {
     HOME: "/",
     SIGN_IN: "/signin",
     DASHBOARD: "/dashboard",
+    REGISTER: "/register",
   },
   api: {
     LOGOUT: "/api/auth/signout",
     SIGN_IN: "/api/auth/signin",
+    REGISTER: "/api/auth/register",
   },
 } as const;

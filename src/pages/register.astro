@@ -1,11 +1,11 @@
 ---
 import FormContainer from "../components/FormContainer.astro";
-import { LoginForm } from "../components/react/LoginForm";
+import { RegisterForm } from "../components/react/RegisterForm";
 import AuthLayout from "../layouts/AuthLayout.astro";
 ---
 
 <AuthLayout>
   <FormContainer>
-    <LoginForm client:load />
+    <RegisterForm client:load />
   </FormContainer>
 </AuthLayout>

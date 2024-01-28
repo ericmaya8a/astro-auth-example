@@ -1,7 +1,16 @@
 ---
+import { strings } from "../constants";
 import BaseLayout from "../layouts/BaseLayout.astro";
 ---
 
 <BaseLayout>
-  <p>main page</p>
+  <h1 class="text-4xl font-bold mb-4">Welcome to Astro Auth</h1>
+  <p class="text-base sm:text-xl">
+    Please <a
+      class="text-blue-500 hover:underline"
+      href={strings.routes.SIGN_IN}>sign in</a
+    > or <a class="text-blue-500 hover:underline" href={strings.routes.REGISTER}
+      >register</a
+    > in order to see your <strong>Dashboard</strong>
+  </p>
 </BaseLayout>

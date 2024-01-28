@@ -3,8 +3,13 @@ import { strings } from "../constants";
 
 const { cookies } = Astro;
 const isLogedIn = Boolean(cookies.get(strings.cookies.access.name));
-const url = isLogedIn ? strings.api.LOGOUT : strings.routes.SIGN_IN;
-const label = `Sign ${isLogedIn ? "out" : "in"}`;
+const url = strings.api.LOGOUT;
 ---
 
-<a class="btn btn-default" href={url}>{label}</a>
+{
+  isLogedIn ? (
+    <a class="btn btn-default" href={url}>
+      Sign out
+    </a>
+  ) : null
+}

@@ -1,14 +1,22 @@
 ---
+import FormContainer from "../components/FormContainer.astro";
 import { strings } from "../constants";
 import BaseLayout from "../layouts/BaseLayout.astro";
+import { getUserByEmail } from "../server/modules";
 import { decodeToken } from "../utils";
 
 const email = decodeToken(
   Astro.cookies.get(strings.cookies.access.name)?.value
 );
+const user = await getUserByEmail(email!);
 ---
 
 <BaseLayout title="Dashboard">
-  <p>here the dashboard</p>
-  {email ? <p>{email}</p> : null}
+  <div class="grid place-items-center">
+    <div class="p-8 border rounded-lg shadow-lg bg-white text-center">
+      <h2 class="text-3xl mb-4">Welcome back <strong>{user?.name}</strong></h2>
+      <p>Your registered email is:</p>
+      <p><strong>{user?.email}</strong></p>
+    </div>
+  </div>
 </BaseLayout>
