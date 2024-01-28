@@ -1,11 +1,16 @@
 ---
 import FormContainer from "../components/FormContainer.astro";
+import Logo from "../components/Logo.astro";
 import { RegisterForm } from "../components/react/RegisterForm";
+import { strings } from "../constants";
 import AuthLayout from "../layouts/AuthLayout.astro";
 ---
 
 <AuthLayout>
   <FormContainer>
+    <div class="flex justify-center mb-3">
+      <a href={strings.routes.HOME}><Logo size="lg" /></a>
+    </div>
     <RegisterForm client:load />
   </FormContainer>
 </AuthLayout>
